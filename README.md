@@ -4,7 +4,7 @@ A small Mandarin class practice app. The static frontend deploys on GitHub Pages
 
 The app opens in Simplified Chinese by default. Use the language button in the header to switch between Chinese and English.
 
-For local passwordless sign-in, the email link redirects to the deployed GitHub Pages URL. Add `https://anhduong275.github.io/MandarinWell/` (or `https://anhduong275.github.io/MandarinWell/**`) to Supabase **Authentication → URL Configuration → Redirect URLs**. The app confirms in the sign-in dialog when a verification email is sent.
+Verification and passwordless sign-in emails use the deployed GitHub Pages URL. In Supabase **Authentication → URL Configuration**, set **Site URL** to `https://anhduong275.github.io/MandarinWell/` and add that same URL (or `https://anhduong275.github.io/MandarinWell/**`) under **Redirect URLs**. The app also passes this redirect explicitly when requesting signup and passwordless emails. The app confirms in the sign-in dialog when an email is sent. Previously sent emails keep their original localhost link; request a new email after updating these settings and deploying the app. If a new email still uses localhost, check any custom Supabase email confirmation template for a hardcoded `{{ .SiteURL }}` and use the redirect target (`{{ .RedirectTo }}`) where the template constructs the link.
 
 ## Publish with GitHub Pages
 
@@ -18,7 +18,7 @@ The included workflow deploys the repository root. No build step or secret is ne
 1. Open the configured Supabase project’s **SQL Editor**, paste in `supabase.sql`, and run it. This creates the shared word bank, private pick history, access policies, and starter vocabulary.
 2. The app is preconfigured with the project URL and publishable key, so the shared word bank connects on page load. The key is a public client key; never put a Supabase `service_role` key in frontend code.
 3. Open the deployed app and select the `?` avatar to enter your display name and email. Your teacher can create their own account on the same app.
-4. Sign in by email and password, or leave the password blank to receive a passwordless sign-in link. For passwordless sign-in, add the deployed GitHub Pages address to **Authentication → URL Configuration → Redirect URLs** in Supabase.
+4. Sign in by email and password, or leave the password blank to receive a passwordless sign-in link. For email confirmation or passwordless sign-in, set the Supabase **Site URL** to the deployed GitHub Pages address and allow it under **Redirect URLs**.
 
 Both accounts can read and add to the shared bank. The app only shows a signed-in user their own picks. A local preview works without Supabase, but its words and history stay in that browser and are not shared.
 
