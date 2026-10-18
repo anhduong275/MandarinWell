@@ -2,6 +2,8 @@
 
 A small Mandarin class practice app. The static frontend deploys on GitHub Pages; Supabase provides account sign-in, the shared word bank, and private per-account practice history.
 
+The app opens in Simplified Chinese by default. Use the language button in the header to switch between Chinese and English.
+
 ## Publish with GitHub Pages
 
 1. In this repository, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
