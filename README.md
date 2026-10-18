@@ -4,6 +4,8 @@ A small Mandarin class practice app. The static frontend deploys on GitHub Pages
 
 The app opens in Simplified Chinese by default. Use the language button in the header to switch between Chinese and English.
 
+For local passwordless sign-in, the email link redirects to the deployed GitHub Pages URL. Add `https://anhduong275.github.io/MandarinWell/` (or `https://anhduong275.github.io/MandarinWell/**`) to Supabase **Authentication → URL Configuration → Redirect URLs**. The app confirms in the sign-in dialog when a verification email is sent.
+
 ## Publish with GitHub Pages
 
 1. In this repository, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
