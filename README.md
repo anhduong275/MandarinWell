@@ -15,7 +15,7 @@ The included workflow deploys the repository root. No build step or secret is ne
 
 ## Set up shared storage and accounts
 
-1. Open the configured Supabase project’s **SQL Editor**, paste in `supabase.sql`, and run it. This creates the shared word bank, private pick history, access policies, and starter vocabulary.
+1. Open the configured Supabase project’s **SQL Editor**, paste in `supabase.sql`, and run it. This creates the shared word bank, private pick history, access policies, and starter vocabulary. Re-run this SQL after updates so the owner-only pick deletion policy is added to an existing project.
 2. The app is preconfigured with the project URL and publishable key, so the shared word bank connects on page load. The key is a public client key; never put a Supabase `service_role` key in frontend code.
 3. Open the deployed app and select the `?` avatar to enter your display name and email. Your teacher can create their own account on the same app.
 4. Sign in by email and password, or leave the password blank to receive a passwordless sign-in link. For email confirmation or passwordless sign-in, set the Supabase **Site URL** to the deployed GitHub Pages address and allow it under **Redirect URLs**.

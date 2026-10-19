@@ -38,11 +38,14 @@ create policy "Users can read their own picks" on public.picks
 drop policy if exists "Users can add their own picks" on public.picks;
 create policy "Users can add their own picks" on public.picks
   for insert to authenticated with check (user_id = auth.uid());
+drop policy if exists "Users can delete their own picks" on public.picks;
+create policy "Users can delete their own picks" on public.picks
+  for delete to authenticated using (user_id = auth.uid());
 
 grant usage on schema public to anon, authenticated;
 grant select on public.words to anon, authenticated;
 grant insert on public.words to authenticated;
-grant select, insert on public.picks to authenticated;
+grant select, insert, delete on public.picks to authenticated;
 
 -- Optional starter vocabulary. Remove these INSERTs if you want an empty bank.
 insert into public.words(hanzi,pinyin,meaning) values
